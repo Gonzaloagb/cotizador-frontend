@@ -1,0 +1,13 @@
+[
+    {
+        "id": "sabanas",
+        "nombre": "Juegos de Sábanas",
+        "descripcion": "Sábanas blancas para uso hospitalario. 100% algodón de.",
+        "imagen": "/images/sabanas.png",
+        "linea": "Hospitalaria",
+        "categoria": "Ropa de cama",
+        "medidas": ["1 plaza", "1 1/2 plazas"]
+      }
+      
+  ]
+  
