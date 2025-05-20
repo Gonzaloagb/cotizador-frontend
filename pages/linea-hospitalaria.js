@@ -1,5 +1,6 @@
 import Layout from '@/components/Layout';
 import Head from 'next/head';
+import Link from 'next/link';
 
 export default function LineaHospitalaria({ productos }) {
   const productosFiltrados = productos?.filter(
@@ -24,23 +25,21 @@ export default function LineaHospitalaria({ productos }) {
                 <div key={producto.id} className="column is-4">
                   <div
                     className="box"
-                    style={{
-                      boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-                      borderRadius: '8px',
-                      height: '100%',
-                    }}
+                    style={{ boxShadow: '0 2px 10px rgba(0,0,0,0.1)', borderRadius: '8px', height: '100%' }}
                   >
-                    <a href={`/producto/${producto.id}`}>
-                      <figure className="image is-4by3">
-                        <img
-                          src={producto.imagen}
-                          alt={producto.nombre}
-                          style={{ objectFit: 'cover', width: '100%' }}
-                        />
-                      </figure>
-                      <h2 className="title is-5 mt-3">{producto.nombre}</h2>
-                      <p className="has-text-grey">{producto.descripcion}</p>
-                    </a>
+                    <Link href={`/producto/${producto.id}`}>
+                      <a>
+                        <figure className="image is-4by3">
+                          <img
+                            src={producto.imagen}
+                            alt={producto.nombre}
+                            style={{ objectFit: 'cover', width: '100%' }}
+                          />
+                        </figure>
+                        <h2 className="title is-5 mt-3">{producto.nombre}</h2>
+                        <p className="has-text-grey">{producto.descripcion}</p>
+                      </a>
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -62,4 +61,3 @@ export async function getServerSideProps() {
     return { props: { productos: [] } };
   }
 }
-
