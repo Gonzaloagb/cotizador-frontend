@@ -56,9 +56,13 @@ export async function getServerSideProps() {
   try {
     const res = await fetch("https://www.edabastecimientosyservicios.com.ar/PERSONAL_CotizadorOnlineMySQL/servicio/productos/index.php");
     const productos = await res.json();
+
+    console.log("🔥 Productos recibidos:", productos); // debug
+
     return { props: { productos } };
   } catch (error) {
     console.error('Error al conectar con el backend:', error.message);
     return { props: { productos: [] } };
   }
 }
+
