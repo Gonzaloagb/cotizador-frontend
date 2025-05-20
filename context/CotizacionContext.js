@@ -38,3 +38,11 @@ export const CotizacionProvider = ({ children }) => {
 };
 
 export const useCotizacion = () => useContext(CotizacionContext);
+
+useEffect(() => {
+  const guardado = localStorage.getItem('cotizacion');
+  console.log("🔍 localStorage cotizacion:", guardado);
+  if (guardado) {
+    setItems(JSON.parse(guardado));
+  }
+}, []);

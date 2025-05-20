@@ -51,3 +51,8 @@ export default function CotizacionPanel() {
     </div>
   );
 }
+
+
+useEffect(() => {
+  console.log("🧠 Cotización cargada en panel:", items);
+}, [items]);
