@@ -1,18 +1,29 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const CotizacionContext = createContext();
 
-export function CotizacionProvider({ children }) {
+export const CotizacionProvider = ({ children }) => {
   const [items, setItems] = useState([]);
 
-  const agregarProducto = (nuevo) => {
-    setItems((prev) => [...prev, nuevo]);
+  useEffect(() => {
+    const guardado = localStorage.getItem('cotizacion');
+    if (guardado) {
+      setItems(JSON.parse(guardado));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cotizacion', JSON.stringify(items));
+  }, [items]);
+
+  const agregarProducto = (producto) => {
+    setItems(prev => [...prev, producto]);
   };
 
-  const quitarProducto = (id, medida) => {
-    setItems(prev =>
-      prev.filter(p => !(p.id === id && p.medidaSeleccionada === medida))
-    );
+  const quitarProducto = (id, medidaSeleccionada) => {
+    setItems(prev => prev.filter(p =>
+      !(p.id === id && p.medidaSeleccionada === medidaSeleccionada)
+    ));
   };
 
   const vaciarCotizacion = () => {
@@ -24,6 +35,6 @@ export function CotizacionProvider({ children }) {
       {children}
     </CotizacionContext.Provider>
   );
-}
+};
 
 export const useCotizacion = () => useContext(CotizacionContext);
