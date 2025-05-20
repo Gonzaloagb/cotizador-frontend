@@ -90,20 +90,13 @@ export default function DetalleProducto({ producto }) {
   );
 }
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/productos/show.php?id=${params.id}`);
-    if (!res.ok) throw new Error("No se encontró el producto");
-
-    const producto = await res.json();
-
-    return {
-      props: { producto },
-    };
+    const res = await fetch("https://edabastecimientosyservicios.com.ar/PERSONAL_CotizadorOnlineMySQL/servicio/productos/index.php");
+    const productos = await res.json();
+    return { props: { productos } };
   } catch (error) {
-    console.error("❌ Error cargando el producto:", error.message);
-    return {
-      notFound: true,
-    };
+    console.error('Error al conectar con el backend:', error.message);
+    return { props: { productos: [] } };
   }
 }
