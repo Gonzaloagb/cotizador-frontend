@@ -54,7 +54,7 @@ export default function LineaHospitalaria({ productos }) {
 
 export async function getServerSideProps() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/productos/index.php`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/servicio/productos/index.php`);
     const productos = await res.json();
     return { props: { productos } };
   } catch (error) {
