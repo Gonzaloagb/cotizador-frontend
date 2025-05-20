@@ -92,7 +92,7 @@ export default function DetalleProducto({ producto }) {
 
 export async function getServerSideProps({ params }) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/productos/show.php?id=${params.id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/servicio/productos/show.php?id=${params.id}`);
     if (!res.ok) throw new Error("No se encontró el producto");
 
     const producto = await res.json();
