@@ -1,8 +1,21 @@
+import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import Head from 'next/head';
 import Link from 'next/link';
 
-export default function LineaHospitalaria({ productos }) {
+export default function LineaHospitalaria() {
+  const [productos, setProductos] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("https://edabastecimientosyservicios.com.ar/PERSONAL_CotizadorOnlineMySQL/servicio/productos/index.php");
+      const data = await res.json();
+      setProductos(data);
+    };
+
+    fetchData();
+  }, []);
+
   const productosFiltrados = productos?.filter(
     (p) => p.categoria?.toLowerCase().trim() === 'hospitalaria'
   );
@@ -49,15 +62,4 @@ export default function LineaHospitalaria({ productos }) {
       </section>
     </Layout>
   );
-}
-
-export async function getServerSideProps() {
-  try {
-    const res = await fetch("https://edabastecimientosyservicios.com.ar/PERSONAL_CotizadorOnlineMySQL/servicio/productos/index.php");
-    const productos = await res.json();
-    return { props: { productos } };
-  } catch (error) {
-    console.error('Error al conectar con el backend:', error.message);
-    return { props: { productos: [] } };
-  }
 }
