@@ -4,20 +4,26 @@ const CotizacionContext = createContext();
 
 export const CotizacionProvider = ({ children }) => {
   const [items, setItems] = useState([]);
-  const [cargado, setCargado] = useState(false); 
+  const [cargado, setCargado] = useState(false);
 
-
+  // Restaurar desde localStorage al iniciar (solo del lado del cliente)
   useEffect(() => {
-    const guardado = localStorage.getItem('cotizacion');
-    if (guardado) {
-      setItems(JSON.parse(guardado));
+    if (typeof window !== 'undefined') {
+      const guardado = localStorage.getItem('cotizacion');
+      if (guardado) {
+        try {
+          setItems(JSON.parse(guardado));
+        } catch (e) {
+          console.warn("Error al parsear cotización:", e);
+        }
+      }
+      setCargado(true);
     }
-    setCargado(true);
   }, []);
 
-
+  // Guardar en localStorage al cambiar
   useEffect(() => {
-    if (cargado) {
+    if (cargado && typeof window !== 'undefined') {
       localStorage.setItem('cotizacion', JSON.stringify(items));
     }
   }, [items, cargado]);
@@ -53,7 +59,7 @@ export const CotizacionProvider = ({ children }) => {
 
   return (
     <CotizacionContext.Provider value={{ items, agregarProducto, quitarProducto, vaciarCotizacion }}>
-      {cargado && children}
+      {cargado ? children : null}
     </CotizacionContext.Provider>
   );
 };
