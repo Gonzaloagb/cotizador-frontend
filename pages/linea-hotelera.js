@@ -54,7 +54,7 @@ export default function LineaHotelera({ productos }) {
 
 export async function getServerSideProps() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/productos/index.php`);
+    const res = await fetch("https://edabastecimientosyservicios.com.ar/PERSONAL_CotizadorOnlineMySQL/servicio/productos/index.php");
     const productos = await res.json();
     return { props: { productos } };
   } catch (error) {
@@ -62,3 +62,4 @@ export async function getServerSideProps() {
     return { props: { productos: [] } };
   }
 }
+
