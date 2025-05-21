@@ -36,18 +36,11 @@ export default function LineaHotelera() {
             <div className="columns is-multiline">
               {productosFiltrados.map((producto) => (
                 <div key={producto.id} className="column is-4">
-                  <div
-                    className="box"
-                    style={{ boxShadow: '0 2px 10px rgba(0,0,0,0.1)', borderRadius: '8px', height: '100%' }}
-                  >
+                  <div className="box" style={{ boxShadow: '0 2px 10px rgba(0,0,0,0.1)', borderRadius: '8px', height: '100%' }}>
                     <Link href={`/producto/${producto.id}`}>
                       <a>
                         <figure className="image is-4by3">
-                          <img
-                            src={producto.imagen}
-                            alt={producto.nombre}
-                            style={{ objectFit: 'cover', width: '100%' }}
-                          />
+                          <img src={producto.imagen} alt={producto.nombre} style={{ objectFit: 'cover', width: '100%' }} />
                         </figure>
                         <h2 className="title is-5 mt-3">{producto.nombre}</h2>
                         <p className="has-text-grey">{producto.descripcion}</p>
