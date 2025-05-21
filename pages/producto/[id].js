@@ -4,12 +4,24 @@ import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import Head from 'next/head';
 
-export default function DetalleProducto({ producto }) {
+export default function DetalleProducto() {
   const router = useRouter();
+  const { id } = router.query;
   const { agregarProducto } = useCotizacion();
 
+  const [producto, setProducto] = useState(null);
   const [medidaSeleccionada, setMedidaSeleccionada] = useState('');
   const [cantidad, setCantidad] = useState(1);
+
+  useEffect(() => {
+    if (!id) return;
+    const fetchProducto = async () => {
+      const res = await fetch(`https://edabastecimientosyservicios.com.ar/PERSONAL_CotizadorOnlineMySQL/servicio/productos/show.php?id=${id}`);
+      const data = await res.json();
+      setProducto(data);
+    };
+    fetchProducto();
+  }, [id]);
 
   const handleAgregar = () => {
     if (!medidaSeleccionada) {
@@ -27,6 +39,8 @@ export default function DetalleProducto({ producto }) {
     agregarProducto(productoSeleccionado);
     alert('Producto agregado a la cotización');
   };
+
+  if (!producto) return <Layout><p className="section">Cargando producto...</p></Layout>;
 
   return (
     <Layout>
@@ -91,17 +105,4 @@ export default function DetalleProducto({ producto }) {
       </section>
     </Layout>
   );
-}
-
-export async function getServerSideProps(context) {
-  const { id } = context.params;
-
-  try {
-    const res = await fetch(`https://edabastecimientosyservicios.com.ar/PERSONAL_CotizadorOnlineMySQL/servicio/productos/show.php?id=${id}`);
-    const producto = await res.json();
-    return { props: { producto } };
-  } catch (error) {
-    console.error('Error al cargar producto:', error);
-    return { notFound: true };
-  }
 }
