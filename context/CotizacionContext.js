@@ -6,7 +6,6 @@ export const CotizacionProvider = ({ children }) => {
   const [items, setItems] = useState([]);
   const [cargado, setCargado] = useState(false);
 
-  // Restaurar desde localStorage al iniciar (solo del lado del cliente)
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const guardado = localStorage.getItem('cotizacion');
@@ -14,14 +13,13 @@ export const CotizacionProvider = ({ children }) => {
         try {
           setItems(JSON.parse(guardado));
         } catch (e) {
-          console.warn("Error al parsear cotización:", e);
+          console.error("❌ Error parseando localStorage:", e);
         }
       }
       setCargado(true);
     }
   }, []);
 
-  // Guardar en localStorage al cambiar
   useEffect(() => {
     if (cargado && typeof window !== 'undefined') {
       localStorage.setItem('cotizacion', JSON.stringify(items));
@@ -53,9 +51,7 @@ export const CotizacionProvider = ({ children }) => {
     );
   };
 
-  const vaciarCotizacion = () => {
-    setItems([]);
-  };
+  const vaciarCotizacion = () => setItems([]);
 
   return (
     <CotizacionContext.Provider value={{ items, agregarProducto, quitarProducto, vaciarCotizacion }}>
