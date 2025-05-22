@@ -23,7 +23,7 @@ export default function LineaHotelera() {
   return (
     <Layout>
       <Head>
-        <title>Línea Hotelera | EDAYS</title>
+        <title>Línea Hotelera | EDAYS </title>
       </Head>
 
       <section className="section">
