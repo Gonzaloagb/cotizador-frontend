@@ -16,7 +16,7 @@ export default function DetalleProducto() {
   useEffect(() => {
     if (!id) return;
     const fetchProducto = async () => {
-      const res = await fetch(`https://edabastecimientosyservicios.com.ar/PERSONAL_CotizadorOnlineMySQL/servicio/productos/show.php?id=${id}`);
+      const res = await fetch(`https://api.edabastecimientosyservicios.com.ar/PERSONAL_CotizadorOnlineMySQL/servicio/productos/show.php?id=${id}`);
       const data = await res.json();
       setProducto(data);
     };
