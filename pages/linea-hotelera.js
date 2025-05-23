@@ -8,7 +8,7 @@ export default function LineaHotelera() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("https://edabastecimientosyservicios.com.ar/PERSONAL_CotizadorOnlineMySQL/servicio/productos/index.php");
+      const res = await fetch("https://api.edabastecimientosyservicios.com.ar/PERSONAL_CotizadorOnlineMySQL/servicio/productos/index.php");
       const data = await res.json();
       setProductos(data);
     };
