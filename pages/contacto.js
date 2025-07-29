@@ -125,7 +125,11 @@ export default function Contacto() {
 
               <div className="field is-grouped is-justify-content-center mt-5">
                 <div className="control">
-                  <button onClick={enviarWhatsapp} className="button is-success">
+                  <button
+                    id="btn-contacto-whatsapp"
+                    onClick={enviarFormulario}
+                    className="button is-success"
+                  >
                     Enviar por WhatsApp
                   </button>
                 </div>

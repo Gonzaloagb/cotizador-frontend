@@ -39,7 +39,6 @@ export default function Layout({ children }) {
             <div className="navbar-end">
               <Link href="/linea-hotelera" className="navbar-item">Línea Hotelera</Link>
               <Link href="/linea-hospitalaria" className="navbar-item">Línea Hospitalaria</Link>
-              <Link href="https://shop.edabastecimientosyservicios.com.ar" className="navbar-item" target="_blank">Ecommerce Minorista</Link>
               <Link href="/contacto" className="navbar-item">Contacto</Link>
 
               <div className="navbar-item has-dropdown is-hoverable">
