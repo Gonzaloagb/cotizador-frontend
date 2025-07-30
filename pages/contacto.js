@@ -127,7 +127,7 @@ export default function Contacto() {
                 <div className="control">
                   <button
                     id="btn-contacto-whatsapp"
-                    onClick={enviarFormulario}
+                    onClick={enviarWhatsapp}
                     className="button is-success"
                   >
                     Enviar por WhatsApp
