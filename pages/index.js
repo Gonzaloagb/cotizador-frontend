@@ -11,7 +11,6 @@ export default function Home() {
     <Layout>
       <BannerSection />
       <LineaImagenes />
-      <BeneficiosSuscripcion />
       <FAQSection />
       <Footer />
     </Layout>

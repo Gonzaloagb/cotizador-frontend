@@ -4,6 +4,7 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <footer>
+      <br></br><br></br>
       <div className="container">
         <div className="columns is-multiline is-align-items-center border-bottom py-5">
 
@@ -55,8 +56,7 @@ export default function Footer() {
 
         <div className="py-4 has-text-centered">
           <small className="text-light">
-            Copyright © 2024 ED ABASTECIMIENTOS Y SERVICIOS SRL – Design & Developed by{' '}
-            <a href="https://themefisher.com" target="_blank" rel="noreferrer">themefisher</a>
+            Copyright © ED ABASTECIMIENTOS Y SERVICIOS SRL 
           </small>
         </div>
       </div>

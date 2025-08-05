@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Layout from '../components/Layout';
+import Footer from '../components/Footer';
 
 export default function Contacto() {
   const [nombre, setNombre] = useState('');
@@ -105,7 +106,6 @@ export default function Contacto() {
                       <option value="">Seleccionar línea</option>
                       <option value="Línea Hotelera">Línea Hotelera</option>
                       <option value="Línea Hospitalaria">Línea Hospitalaria</option>
-                      <option value="Ecommerce Minorista">Ecommerce Minorista</option>
                     </select>
                   </div>
                 </div>
@@ -138,6 +138,7 @@ export default function Contacto() {
           </div>
         </div>
       </section>
+      <Footer />
     </Layout>
   );
 }

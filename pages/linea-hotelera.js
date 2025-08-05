@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import Head from 'next/head';
 import Link from 'next/link';
+import Footer from '../components/Footer';
 
 export default function LineaHotelera() {
   const [productos, setProductos] = useState([]);
@@ -53,6 +54,7 @@ export default function LineaHotelera() {
           )}
         </div>
       </section>
+      <Footer />
     </Layout>
   );
 }
