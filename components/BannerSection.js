@@ -10,7 +10,7 @@ export default function BannerSection() {
       href: "https://www.edabastecimientosyservicios.com.ar/producto/42",
     },
     {
-      img: "/images/ambo_A.png",
+      img: "/images/ambo_a.png",
       title: "Ambos unisex",
       text: "Arciel o acrocel. Del XXS al 7XL.",
       href: "https://www.edabastecimientosyservicios.com.ar/producto/63",
