@@ -139,9 +139,13 @@ export default function Cotizacion() {
                 </div>
               </div>
 
-              <button onClick={enviarCotizacion} className="button is-success mt-4">
-                Enviar cotización por WhatsApp
-              </button>
+            <button
+              id="btn-enviar-cotizacion"
+              onClick={enviarCotizacion}
+              className="button is-success mt-4"
+            >
+              Enviar cotización por WhatsApp
+            </button>
             </>
           )}
         </div>
