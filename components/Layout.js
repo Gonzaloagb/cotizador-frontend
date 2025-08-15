@@ -33,7 +33,6 @@ export default function Layout({ children }) {
               ventas@edabastecimientosyservicios.com.ar
             </a>
           </div>
-
         </div>
       </div>
 
@@ -69,7 +68,7 @@ export default function Layout({ children }) {
       </nav>
 
       <a
-        href={`https://wa.me/5491122625882?text=Hola%20quiero%20hacer%20una%20consulta`}
+        href={`https://wa.me/5491167411965?text=Hola%20quiero%20hacer%20una%20consulta`}
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"
