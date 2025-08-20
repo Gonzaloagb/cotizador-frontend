@@ -84,7 +84,7 @@ export default function Registro() {
 
       <section className="section">
         <div className="container">
-          <h1 className="title has-text-centered">Registro de Empresa</h1>
+          <h1 className="title has-text-centered">Registro de Empresas</h1>
           <div className="columns is-centered">
             <div className="column is-6">
               <form onSubmit={handleSubmit}>
