@@ -37,7 +37,7 @@ export default function Contacto() {
     }
 
     setErrores({});
-    const url = `https://wa.me/5491167411965?text=${generarMensaje()}`;
+    const url = `https://wa.me/5491176161163?text=${generarMensaje()}`;
     window.open(url, '_blank');
   };
 

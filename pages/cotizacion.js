@@ -32,7 +32,7 @@ export default function Cotizacion() {
     return encodeURIComponent(mensaje);
   };
 
-  const whatsappURL = `https://wa.me/5491167411965?text=${generarMensaje()}`;
+  const whatsappURL = `https://wa.me/5491176161163?text=${generarMensaje()}`;
 
   const enviarCotizacion = () => {
     const nuevosErrores = {};
