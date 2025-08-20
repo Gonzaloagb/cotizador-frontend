@@ -19,11 +19,11 @@ export default function Layout({ children }) {
       <div className="topbar">
         <div className="container topbar__container">
           <div className="topbar__left">
-            <a className="topbar__item" href="tel:+5491167411965">
+            <a className="topbar__item" href="tel:+5491176161163">
               <svg className="topbar__icon" viewBox="0 0 24 24">
                 <path d="M6.62 10.79a15.53 15.53 0 006.59 6.59l2.2-2.2a1 1 0 011-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1z" />
               </svg>
-              +54 9 11 6741 1965
+              +54 9 11 7616 1163
             </a>
 
             <a className="topbar__item" href="mailto:ventas@edabastecimientosyservicios.com.ar">
@@ -68,7 +68,7 @@ export default function Layout({ children }) {
       </nav>
 
       <a
-        href={`https://wa.me/5491167411965?text=Hola%20quiero%20hacer%20una%20consulta`}
+        href={`https://wa.me/5491176161163?text=Hola%20quiero%20hacer%20una%20consulta`}
         className="whatsapp-float"
         target="_blank"
         rel="noopener noreferrer"
